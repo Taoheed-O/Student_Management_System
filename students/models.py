@@ -12,3 +12,9 @@ class Student(models.Model):
     department = models.CharField(max_length=50)
     cgpa = models.FloatField()
     # image = models.ImageField(upload_to='passport')
+
+    def __str__(self):
+        return f" {self.firstname} {self.lastname}"
+    
+
+    
