@@ -60,35 +60,36 @@
             <div class="col-12">
                 {% if students %}
                 <div class="card border-secondary ml-3 mr-3 mb-3 ">
-                  <div class="card-header">Header</div>
+                  <div class="card-header">Student details</div>
                   <div class="card-body">
-                    <h4 class="card-title">Secondary card title</h4>
                     <p class="card-text">
                       <div class="table-responsive">
                         <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col">Type</th>
-                              <th scope="col">Column heading</th>
-                              <th scope="col">Column heading</th>
-                              <th scope="col">Column heading</th>
-                              <th scope="col">Column heading</th>
-                              <th scope="col">Column heading</th>
-                              <th scope="col">Column heading</th>
-                              <th scope="col">Column heading</th>
+                              <th scope="col">Student ID</th>
+                              <th scope="col">First Name</th>
+                              <th scope="col">Last Name</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Faculty</th>
+                              <th scope="col">Department</th>
+                              <th scope="col">CGPA</th>
+                              <th scope="col">Actions</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr class="table-active">
-                              <th scope="row">Active</th>
-                              <td>Column content</td>
-                              <td>Column content</td>
-                              <td>Column content</td>
-                              <td>Column content</td>
-                              <td>Column content</td>
-                              <td>Column content</td>
-                              <td>Column content</td>
+                            {% for student in students %}
+                            <tr>
+                              <td>{{ student.student_id }}</td>
+                              <td>{{ student.firstname }}</td>
+                              <td>{{ student.lastname }}</td>
+                              <td>{{ student.email }}</td>
+                              <td>{{ student.faculty }}</td>
+                              <td>{{ student.department }}</td>
+                              <td>{{ student.cgpa }}</td>
+                              <td>Actions</td>
                             </tr>
+                            {% endfor %}
                           </tbody>
                         </table>
                       </div>
