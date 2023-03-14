@@ -13,7 +13,7 @@
 <body class="d-flex flex-column min-vh-100 ">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"> <i class="fa-sharp fa-solid fa-graduation-cap fa-lg"></i> Student Management System</a>
+          <a class="navbar-brand"><i class="fa-sharp fa-solid fa-graduation-cap fa-lg"></i> Student Management System</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -24,17 +24,17 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#"><i class="fa-sharp fa-solid fa-list"></i> Students
+                <a class="nav-link active" href="#"><i class="fa-sharp fa-solid fa-list fa-lg"></i> Students
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="#"><i class="fa-solid fa-plus fa-lg"></i> Add Students</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#"><i class="fa-sharp fa-solid fa-circle-info fa-lg"></i> About</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -58,13 +58,17 @@
         <h3 class="m-4"> Students </h3>
         <div class="row">
             <div class="col-12">
+                {% if students %}
                 <div class="card border-secondary ml-3 mr-3 mb-3 ">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                      <h4 class="card-title">Secondary card title</h4>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
+                  <div class="card-header">Header</div>
+                  <div class="card-body">
+                    <h4 class="card-title">Secondary card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                   </div>
+                </div>
+                {% else %}
+                <h5 class="alert alert-primary mr-4 ml-4"> No Students have been registered </h5>
+                {% endif %}
             </div>
         </div>
       </div>
