@@ -7,4 +7,5 @@ app_name = "students"
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('<int:pk>',views.view_student, name='view_student'),
 ]
