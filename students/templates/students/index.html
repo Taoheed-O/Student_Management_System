@@ -84,7 +84,39 @@
                               <td>{{ student.faculty }}</td>
                               <td>{{ student.department }}</td>
                               <td>{{ student.cgpa }}</td>
-                              <td>Actions</td>
+                              <td>
+                                <button type="button" class="btn btn-success me-1" href="{% url 'students:view_student' student.id %}" data-bs-toggle="modal" data-bs-target="#myModal{{student.id}}">
+                                  <i class="fa-sharp fa-solid fa-circle-info fa-lg"></i>
+                                </button>
+
+                                <div class="modal" id="myModal{{student.id}}" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="True">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title">Student: {{student.firstname}} {{student.lastname}}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true"></span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <ul class="list-unstyled">
+                                          <li> Student ID: <strong> {{student.student_id}} </strong></li>
+                                          <li> First Name: <strong> {{student.firstname}} </strong></li>
+                                          <li> Last Name: <strong> {{student.lastname}} </strong></li>
+                                          <li> Email: <strong> {{student.email}} </strong></li>
+                                          <li> Faculty: <strong> {{student.faculty}} </strong></li>
+                                          <li> Department: <strong> {{student.department}} </strong></li>
+                                          <li> cgpa: <strong> {{student.cgpa}} </strong></li>
+                                        </ul>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </td>
                             </tr>
                             {% endfor %}
                           </tbody>
