@@ -2,7 +2,7 @@ from django import forms
 from .models import Student
 
 
-class Student(forms.ModelForm):
+class Student_form(forms.ModelForm):
     class Meta:
         model = Student
         field = ["student_id", "firstname", "lastname", "email", "faculty", "department", "cgpa"]
