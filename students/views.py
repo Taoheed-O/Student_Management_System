@@ -18,6 +18,7 @@ def view_student(request, id):
 
 
 def add(request):
+    success = True
     if request.method == "POST":
         form = StudentForm(request.POST)
         if form.is_valid():
@@ -39,8 +40,7 @@ def add(request):
                 cgpa = new_cgpa,
             )
             new_student.save()
-            context = {"form": StudentForm(), "success": True}
-            return render(request, "students/add.html", context)
+            return render(request, "students/add.html", {"form": StudentForm(),"success": success})
     else:
         form = StudentForm()
         context = {"form": form}
