@@ -16,11 +16,13 @@
                 <i class="fa-solid fa-address-card"></i> Student Registration 
             </div>
             <div class="card-body">
-                <form action="{% url 'students:add' %}" method="post">
+                <form action="{% url 'students:add' %}" method="POST">
                     {% csrf_token %}
 
                     {{ form.as_p }}
-                    
+                    <button type="button" class="btn btn-primary"> Register </button>
+                    <a href="{% url 'students:index' %}" class="btn btn-secondary"> Cancel </a>
+
                 </form>
             </div>
           </div>

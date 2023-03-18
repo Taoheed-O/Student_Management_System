@@ -3,7 +3,7 @@ from .models import Student
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from .forms import Student_form 
+from .forms import StudentForm 
 # Create your views here.
 
 def index(request):
@@ -18,8 +18,8 @@ def view_student(request, id):
 
 
 def add(request):
-    if request.method == "post":
-        form = Student_form(request.post)
+    if request.method == "POST":
+        form = StudentForm(request.POST)
         if form.is_valid():
             new_student_id = form.cleaned_data["student_id"]
             new_firstname = form.cleaned_data["firstname"]
@@ -39,10 +39,10 @@ def add(request):
                 cgpa = new_cgpa,
             )
             new_student.save()
-            context = {"form": Student_form(), "success": True}
-            return render("students/add.html", context)
-        else:
-            form = Student_form()
-            context = {"form": Student_form()}
-            return render("students/add.html", context)
+            context = {"form": StudentForm(), "success": True}
+            return render(request, "students/add.html", context)
+    else:
+        form = StudentForm()
+        context = {"form": form}
+        return render(request, "students/add.html", context)
         
