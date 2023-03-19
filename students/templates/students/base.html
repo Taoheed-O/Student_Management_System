@@ -18,18 +18,8 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarColor02">
+          <div class="collapse navbar-collapse m-4" id="navbarColor02">
             <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="{% url 'students:index' %}"><i class="fa-sharp fa-solid fa-house"></i> Home
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="{% url 'students:add' %}"><i class="fa-solid fa-plus fa-lg"></i> Add Students</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#"><i class="fa-sharp fa-solid fa-circle-info fa-lg"></i> About</a>
-              </li>
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                 <div class="dropdown-menu">
@@ -40,6 +30,16 @@
                   <a class="dropdown-item" href="#">Separated link</a>
                 </div>
               </li> -->
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'students:index' %}"><i class="fa-sharp fa-solid fa-house"></i> Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'students:add' %}"><i class="fa-solid fa-plus fa-lg"></i> Add Students</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#"><i class="fa-sharp fa-solid fa-circle-info fa-lg"></i> About</a>
+              </li>
             </ul>
             <form class="d-flex">
               <input class="form-control me-sm-2" type="search" placeholder="Search">
