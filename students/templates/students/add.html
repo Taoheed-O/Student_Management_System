@@ -3,13 +3,13 @@
 {% block content %}
 
 <h3 class="text-center m-4"> Add Student </h3>
- {% if success == True %}
- <div class="alert alert-success" role="alert">
+{% if success %}
+<div class="alert alert-success" role="alert">
     student added successfully
     <a href="{% url 'students:index' %}" class="alert-link">Home</a>
- </div>
- {% else %}
- <div class="row justify-content-center ">
+</div>
+{% else %}
+<div class="row justify-content-center ">
     <div class="col-6">
         <div class="card bg-light mb-3" style="max-width: 50rem;">
             <div class="card-header">
@@ -23,8 +23,8 @@
                     <a href="{% url 'students:index' %}" class="btn btn-secondary"> Cancel </a>
                 </form>
             </div>
-          </div>
+        </div>
     </div>
- </div>
- {% endif %}
+</div>
+{% endif %}
 {% endblock content %}

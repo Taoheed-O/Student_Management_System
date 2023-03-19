@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import Student
-from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from .forms import StudentForm 
@@ -18,8 +17,7 @@ def view_student(request, id):
 
 
 def add(request):
-    success = True
-    if request.method == "POST":
+    if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
             new_student_id = form.cleaned_data["student_id"]
@@ -40,9 +38,13 @@ def add(request):
                 cgpa = new_cgpa,
             )
             new_student.save()
-            return render(request, "students/add.html", {"form": StudentForm(),"success": success})
+            return render(request, "students/add.html", {
+                "form": StudentForm(),
+                "success": True
+                })
     else:
         form = StudentForm()
-        context = {"form": form}
-        return render(request, "students/add.html", context)
+        return render(request, "students/add.html", {
+            'form': StudentForm()
+        })
         
