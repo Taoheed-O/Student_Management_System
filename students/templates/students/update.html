@@ -1,5 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<h3 class="text-center m-4"> Update Student </h3>
+{% if success %}
+    <div class="alert alert-success" role="alert">
+        student updated successfully
+        <a href="{% url 'students:index' %}" class="alert-link">Home</a>
+    </div>
+{% else %}
+<div class="row justify-content-center ">
+    <div class="col-6">
+        <div class="card bg-light mb-3" style="max-width: 50rem;">
+            <div class="card-header">
+                <i class="fa-solid fa-address-card fa-lg"></i> Update 
+            </div>
+            <div class="card-body">
+                <form action="{% url 'students:update' %}" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="{% url 'students:index' %}" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
 {% endblock content %}
