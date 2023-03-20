@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'students/base.html' %}
 
 {% block content %}
 <h3 class="text-center m-4"> Update Student </h3>
@@ -12,10 +12,10 @@
     <div class="col-6">
         <div class="card bg-light mb-3" style="max-width: 50rem;">
             <div class="card-header">
-                <i class="fa-solid fa-address-card fa-lg"></i> Update 
+                <i class="fa-solid fa-pen-to-square fa-lg "></i> Update Student's record
             </div>
             <div class="card-body">
-                <form action="{% url 'students:update' %}" method="POST">
+                <form action="" method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit" class="btn btn-primary">Update</button>

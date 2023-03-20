@@ -63,6 +63,5 @@ def update(request, id):
         student = Student.objects.get(pk=id)
         form =  StudentForm(instance=student)
         return render(request, 'students/update.html', {
-            'form':form
+            'form':form,
         })
-    
