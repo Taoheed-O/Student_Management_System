@@ -65,3 +65,10 @@ def update(request, id):
         return render(request, 'students/update.html', {
             'form':form,
         })
+
+
+def delete(request, id):
+    if request.method == 'POST':
+        student = Student.objects.get(pk=id)
+        student.delete()
+        return HttpResponseRedirect(reverse("index"))
