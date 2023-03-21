@@ -64,6 +64,32 @@
 
                         <a class="btn btn-warning mr-1" href="{% url 'students:update' student.id %}">
                           <i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                        <button type="button" class="btn btn-danger mr-1"  data-bs-toggle="modal" data-bs-target="#delete{{student.id}}">
+                          <i class="fa-solid fa-trash"></i>
+                        </button> 
+
+                        <div class="modal" id="delete{{student.id}}" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="True">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title">Student: {{student.firstname}} {{student.lastname}}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true"></span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <p> Are you sure you want to delete this student ?</p>
+                              </div>
+                              <div class="modal-footer">
+                                <form action="{% url 'delete' student.id %}" method="POST">
+                                  {% csrf_token %}
+                                  <input type="submit" class="btn btn-primary" value="Delete">
+                                </form>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
 
                       </td>
                     </tr>
