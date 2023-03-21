@@ -71,4 +71,5 @@ def delete(request, id):
     if request.method == 'POST':
         student = Student.objects.get(pk=id)
         student.delete()
-        return HttpResponseRedirect(reverse("index"))
+    return HttpResponseRedirect(reverse("index"))
+    
