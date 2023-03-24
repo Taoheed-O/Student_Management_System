@@ -5,15 +5,19 @@ from django.http import HttpResponseRedirect
 from .forms import StudentForm 
 # Create your views here.
 
+
+
 def index(request):
     students = Student.objects.all()
     context = {"students":students}
     return render(request, "students/index.html", context)
 
 
+
 def view_student(request, id):
     student = Student.objects.get(pk=id)
     return HttpResponseRedirect(reverse("index"))
+
 
 
 def add(request):
@@ -48,7 +52,8 @@ def add(request):
             'form': StudentForm()
         })
         
- 
+
+
 def update(request, id):
     if request.method == 'POST':
         student =  Student.objects.get(pk=id)
@@ -67,9 +72,10 @@ def update(request, id):
         })
 
 
+
 def delete(request, id):
     if request.method == 'POST':
         student = Student.objects.get(pk=id)
         student.delete()
     return HttpResponseRedirect(reverse("index"))
-    
+
