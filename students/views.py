@@ -13,11 +13,9 @@ def index(request):
     return render(request, "students/index.html", context)
 
 
-
 def view_student(request, id):
     student = Student.objects.get(pk=id)
     return HttpResponseRedirect(reverse("index"))
-
 
 
 def add(request):
@@ -53,7 +51,6 @@ def add(request):
         })
         
 
-
 def update(request, id):
     if request.method == 'POST':
         student =  Student.objects.get(pk=id)
@@ -70,7 +67,6 @@ def update(request, id):
         return render(request, 'students/update.html', {
             'form':form,
         })
-
 
 
 def delete(request, id):
